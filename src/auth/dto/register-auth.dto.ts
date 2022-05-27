@@ -7,7 +7,7 @@ export class RegisterAuthDto {
 
     @MinLength(6)
     @MaxLength(18)
-    password: string
+    password: string;
 
 
 }

@@ -5,8 +5,6 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop()
-  name: string;
 
   @Prop()
   email: string;
@@ -16,6 +14,9 @@ export class User {
 
   @Prop()
   wallet_id: string;
+
+  @Prop()
+  wallet_amount:number;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

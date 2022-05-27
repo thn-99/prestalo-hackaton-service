@@ -12,20 +12,20 @@ export class UserService {
     @InjectModel(User.name) private readonly userModel: Model<UserDocument>,
   ){}
 
-  create(createUserDto: CreateUserDto) {
-    return 'This action adds a new user';
+  update(id:number,user:any) {
+    return this.userModel.findByIdAndUpdate(id,user);
   }
 
 
   findOne(id: number) {
-    return `This action returns a #${id} user`;
+    return this.userModel.findById(id);
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  findOneByEmail(email:string){
+    return this.userModel.find({email:email});
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  findByWallet(walletId:string){
+    return this.userModel.findOne({wallet_id:walletId});
   }
 }
